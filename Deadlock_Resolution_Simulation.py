@@ -1,7 +1,6 @@
 # Deadlock Resolution Simulation
 # Developer: M. Demirtaş
 # Description: A Python program to simulate deadlock resolution algorithms with various resource distributions.
-# Date: [Insert Date]
 # License: [Specify License, e.g., MIT, GPL, or any custom license]
 
 
