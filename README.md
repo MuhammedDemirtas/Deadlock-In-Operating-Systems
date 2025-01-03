@@ -1,66 +1,109 @@
-# Performance Comparison of Deadlock Solution Algorithms
+# Deadlock Resolution Simulation
 
-This project simulates various deadlock resolution algorithms in an operating system context. The script generates random resource allocation scenarios and evaluates the performance of different algorithms for handling deadlocks.
+This Python-based program simulates deadlock scenarios and evaluates different algorithms to resolve them. It provides a comparative analysis of various algorithms' performance in handling deadlocks under different resource allocation strategies.
 
---------------------------------------------------
+---
 
-# Description
-* The script simulates different deadlock resolution algorithms and compares their performance in terms of average resolution time. The algorithms included are:
+## Features
 
-* Banker's Algorithm
-* Preallocation
-* Timeout
-* Wait-Die
-* Wound-Wait
-* The script uses random resource allocation and different distribution methods (uniform, normal, custom) to simulate various scenarios.
+### Simulation Overview
+- Simulates multiple processes competing for shared resources.
+- Generates resource allocation requests using different distributions (Uniform, Normal, Custom).
+- Implements several deadlock resolution algorithms.
 
-------------------------------------------------------------
+### Deadlock Resolution Algorithms
+- **Banker's Algorithm**: Checks for a safe state by simulating allocation requests.
+- **Preallocation**: Frees resources preemptively based on process completion.
+- **Timeout**: Releases resources if a process exceeds a set time limit.
+- **Wait-Die**: Older processes wait while younger ones release resources.
+- **Wound-Wait**: Older processes preempt resources from younger ones.
 
-# Prerequisites
-* Python 3.x
-* Matplotlib
-* Time module (included in Python standard library)
-* Random module (included in Python standard library)
+### Visualization
+- Uses Matplotlib to plot the performance comparison of algorithms under various distributions and process counts.
+- Clear, comparative graphs showing average resolution times.
 
----------------------------------------
+---
 
-# Installation
-* Ensure you have Python 3 installed on your system. You can download it from python.org.
-* Install Matplotlib if you don't have it already:
-* pip install matplotlib
+## Installation
 
-------------------------------
+### Prerequisites
+Ensure you have the following installed:
+- Python 3.8 or higher
+- Required Python libraries: Matplotlib, Random
 
-# Usage
-* Clone the repository or download the DEADLOCK.py file.
-* Run the script using Python:
-* python DEADLOCK.py
-* Follow the prompt to input the number of resources.
-* The script will display the results of the deadlock resolution algorithms and plot the performance comparison. 
+### Clone the Repository
+```bash
+git clone https://github.com/MDemirtas/Deadlock-Resolution-Simulator.git
+cd Deadlock-Resolution-Simulator
+```
 
------------------------------------------
+### Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-# Algorithms
-* Banker's Algorithm
-A resource allocation and deadlock avoidance algorithm that tests for the safety of a state by simulating the allocation for predetermined maximum possible amounts of all resources, and then makes an "s-state" check to test for possible activities before deciding whether allocation should be allowed to continue.
+---
 
-* Preallocation
-Allocates resources to processes in advance based on their maximum requirements to avoid deadlock situations.
+## Running the Simulation
 
-* Timeout
-If a process is unable to obtain the resources it needs within a certain time frame, it is assumed to be in a deadlock and its resources are released.
+1. Run the main script to execute the simulation:
+```bash
+python main.py
+```
 
-* Wait-Die
-A preemptive scheme where older processes wait for younger ones to release resources, while younger processes are aborted and restarted if they request resources held by older processes.
+2. Input the required parameters when prompted, such as:
+   - Number of resources.
+   - Number of processes.
+   - Distribution type (Uniform, Normal, or Custom).
 
-* Wound-Wait
-A preemptive scheme where older processes can preempt younger processes by forcing them to release resources and restart.
+3. View the simulation results and performance graphs.
 
-----------------------------------------------
+---
 
-# Simulation
-* The script runs simulations for different numbers of processes and for each of the deadlock resolution algorithms. It measures the average time taken to resolve * deadlocks under different distributions of resource requests:
+## File Structure
 
-* Uniform Distribution: Resources are requested uniformly across the range.
-* Normal Distribution: Resources are requested based on a normal distribution with a mean and standard deviation.
-* Custom Distribution: Resources are requested based on a custom distribution defined by the user.
+- **`main.py`**: Entry point of the simulation.
+- **`deadlock.py`**: Contains logic for deadlock generation and resolution.
+- **`visualize.py`**: Handles performance graphing.
+- **`requirements.txt`**: Lists required Python libraries.
+
+---
+
+## Example Usage
+
+### Input Example
+- **Resource Count**: 5
+- **Process Count**: 50
+- **Distribution**: Normal
+
+### Output
+- Average resolution time for each algorithm under the specified settings.
+- Visualization of algorithm performance as line plots.
+
+---
+
+## Results
+The program generates plots comparing the average resolution times of different algorithms under various conditions. For example:
+
+- Banker's Algorithm performs well under balanced allocations.
+- Timeout is faster for fewer processes but less efficient for high loads.
+- Wait-Die and Wound-Wait demonstrate variable efficiency based on resource contention.
+
+---
+
+## Contributing
+Contributions are welcome! Please:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request for review.
+
+---
+
+## Author
+**M. Demirtaş**
+
+---
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+

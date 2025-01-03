@@ -1,4 +1,0 @@
-*.rtf linguist-detectable=false
-*.py linguist-detectable=true
-*.py linguist-language=Python
-*.md linguist-detectable=true
